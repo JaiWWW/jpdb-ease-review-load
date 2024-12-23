@@ -1,6 +1,6 @@
 # JPDB Ease Review Load
 
-Tested with Tampermonkey on Opera. As far as I know it should work with any major browsers and script managers but please [let me know](https://github.com/JaiWWW/jpdb-ease-review-load/issues/new) if it doesn't and I might look into it! (no promises though)
+Tested with Tampermonkey on Opera. As far as I know it should work with any major browsers and script managers but please help others by [reporting it](https://github.com/JaiWWW/jpdb-ease-review-load/issues/new) if it doesn't, and I might look into it! (no promises though)
 
 ## Introduction
 When I have lots of reviews due, I feel less motivated to do them, so I made this script to help me stay motivated!
