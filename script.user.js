@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         JPDB Ease Review Load
 // @namespace    http://tampermonkey.net/
-// @version      1.0
+// @version      1.1
 // @description  If you have lots of reviews due, make it look like you have less so it's easier to manage
 // @author       JaiWWW
 // @match        https://jpdb.io/*
@@ -19,17 +19,17 @@ const ACTIVATION_THRESHOLD = 40; // Review easing activates only if due count is
 const RESTRICTED_MAX = 30; // What the review count will start at and be restricted to
 const DEBUG = false; // Enable debug logs
 
-// Add CSS to hide the body until edits are complete
-const style = document.createElement('style');
-style.textContent = 'body { visibility: hidden; }';
-document.documentElement.appendChild(style);
-if (DEBUG) {console.log('[DEBUG - Ease Review Load] Body hidden') }
-
 /////////////////////////////////////////////////////////
 // TO DO                                               //
 // Figure out what's going on with comment on line ~97 //
 // Move user settings into jpdb settings page          //
 /////////////////////////////////////////////////////////
+
+// Add CSS to hide the body until edits are complete
+const style = document.createElement('style');
+style.textContent = 'body { visibility: hidden; }';
+document.documentElement.appendChild(style);
+if (DEBUG) {console.log('[DEBUG - Ease Review Load] Body hidden') }
 
 (function() {
     'use strict';
@@ -76,6 +76,9 @@ if (DEBUG) {console.log('[DEBUG - Ease Review Load] Body hidden') }
         if (elementsToUpdate[0]) {
             debugLog('Nav due count element found');
             const rawDueCount = navDCSpan.style.color === 'red' ? Number(navDCSpan.textContent) : 0;
+
+            // Disconnect the observer as the target element has been found
+            if (docObserver) {docObserver.disconnect(); debugLog('docObserver disconnected')}
 
             if (!Activated && rawDueCount > ACTIVATION_THRESHOLD) {
                 // ^ requirements for initialising the due count reduction
@@ -139,10 +142,6 @@ if (DEBUG) {console.log('[DEBUG - Ease Review Load] Body hidden') }
             // Remove the style element to restore visibility
             style.remove();
             debugLog('Body reinstated');
-
-            // Disconnect the observer as the target element has been found and updated
-            if (docObserver) {docObserver.disconnect(); debugLog('docObserver disconnected')}
-            // Need to make it observe the counter in reviews as the page doesn't refresh when going to the back but the due counter is mutated
         }
     }
 
