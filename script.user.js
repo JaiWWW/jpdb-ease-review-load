@@ -7,7 +7,10 @@
 // @match        https://jpdb.io/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=jpdb.io
 // @run-at       document-start
-// @grant        none
+// @homepageURL  https://github.com/JaiWWW/jpdb-ease-review-load
+// @supportURL   https://github.com/JaiWWW/jpdb-ease-review-load/issues/new
+// @downloadURL  https://github.com/JaiWWW/jpdb-ease-review-load/raw/main/script.user.js
+// @updateURL    https://github.com/JaiWWW/jpdb-ease-review-load/raw/main/script.user.js
 // ==/UserScript==
 /* eslint-disable no-fallthrough -- fallthrough is love, fallthrough is life */
 
