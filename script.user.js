@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         JPDB Ease Review Load
 // @namespace    http://tampermonkey.net/
-// @version      1.2
+// @version      1.2.1
 // @description  If you have lots of reviews due, make it look like you have less so it's easier to manage
 // @author       JaiWWW
 // @match        https://jpdb.io/*
@@ -38,7 +38,7 @@ if (DEBUG) {console.log('[DEBUG - Ease Review Load] Body hidden') }
     // Put my localStorage variables into a namespace by using these functions instead
     const localStoragePrefix = 'EaseReviewLoad-';
     const getItem = (name) => localStorage.getItem(`${localStoragePrefix}${name}`);
-    const setItem = (name, value) => localStorage.setItem(`EaseReviewLoad-${name}`, value);
+    const setItem = (name, value) => localStorage.setItem(`${localStoragePrefix}${name}`, value);
 
     let Activated = getItem('Activated') === 'true';
     let InitialRawDueCount = Number(getItem('InitialRawDueCount'));
