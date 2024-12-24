@@ -5,8 +5,10 @@ Tested with Tampermonkey on Opera. As far as I know it should work with any majo
 ## Introduction
 When I have lots of reviews due, I feel less motivated to do them, so I made this script to help me stay motivated!
 
-## Installation
+## Installation and updating
 > To install this script, make sure you have Tampermonkey (may or may not work with other script managers) and then click [here](https://github.com/JaiWWW/jpdb-ease-review-load/raw/main/script.user.js), or click <ins>script.user.js</ins> above and then click the **Raw** button.
+
+> It should auto-update (at least, on Tampermonkey and presumably Greasemonkey, depending on your settings). If it doesn't or you want to force update immediately, just follow the installation instructions
 
 ## How it works
 - Allows the user to set a `threshold` (default: 40) and a `limit` (default: 30) at the top of the script code.
